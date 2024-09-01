@@ -44,9 +44,11 @@
 </template>
 
 <script setup>
-import { ClienteAxios } from '@/config/ClienteAxios';
+//import { ClienteAxios } from '@/config/ClienteAxios';
+import axios from 'axios';
 import { ref } from 'vue';
 import InputPassword from '@/components/login/InputPassword.vue';
+import router from '@/router';
 
 const cliente_nombre = ref('');
 const cliente_direccion = ref('');
@@ -59,16 +61,29 @@ const cliente_contraseña = ref('');
 
 const register = async () => {
     try {
-        await ClienteaAxios.post('/Clientes/Crear', {
-            cliente_nombre: cliente_nombre.value,
-            cliente_direccion: cliente_direccion.value,
-            cliente_localidad: cliente_localidad.value,
-            cliente_email: cliente_email.value,
-            cliente_telefono: cliente_telefono.value,
-            cliente_contraseña: cliente_contraseña.value,
+        const formdata = new FormData()
+        formdata.append('cliente_nombre', cliente_nombre.value)
+        formdata.append('cliente_direccion', cliente_direccion.value)
+        formdata.append('cliente_localidad', cliente_localidad.value)
+        formdata.append('cliente_email', cliente_email.value)
+        formdata.append('cliente_telefono', cliente_telefono.value)
+        formdata.append('cliente_password', cliente_contraseña.value)
+        const rest = await axios.post('http://localhost:8000/api/Clientes/Crear', //{
+            //cliente_nombre: cliente_nombre.value,
+            //cliente_direccion: cliente_direccion.value,
+           // cliente_localidad: cliente_localidad.value,
+           // cliente_email: cliente_email.value,
+           // cliente_telefono: cliente_telefono.value,
+            //cliente_contraseña: cliente_contraseña.value,
            
-        });
-       
+        //}
+        formdata);
+        console.log(rest.data)
+        if(rest.data.status === 'OK'){
+            
+            window.location.href = '/login';
+        } 
+        
     } catch (error) {
         
     }

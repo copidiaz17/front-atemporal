@@ -20,7 +20,8 @@
 import ProductCard from '@/components/ProductCard.vue';
 import ArrowRightIcon from '@/assets/icons/ArrowRightIcon.vue';
 import { onMounted, ref } from 'vue';
-import { ClienteAxios } from '@/config/ClienteAxios';
+import axios from 'axios';
+//import { ClienteAxios } from '@/config/ClienteAxios';
 const stroke = ref("#593122")
 const handleHover = () => {
     stroke.value = stroke.value == "#fff" ? "#593122" : "#fff";
@@ -29,7 +30,7 @@ const handleHover = () => {
 const products = ref([])
 
 onMounted(async () => {
-    const response = await ClienteAxios.get('/Productos/')
+    const response = await axios.get('http://localhost:8000/api/Productos/')
     if (response.status == 200) {
         products.value = response.data
     }

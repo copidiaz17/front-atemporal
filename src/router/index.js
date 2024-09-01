@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import HomeView from '../../../resources/js/Pages/HomeView.vue';
-import ProductDetailView from '../../../resources/js/Pages/ProductDetailView.vue';
-import ProductListView from '../../../resources/js/Pages/ProductListView.vue';
-import LoginView from '../../../resources/js/Pages/LoginView.vue';
-import RegisterView from '../../../resources/js/Pages/RegisterView.vue';
-import CartView from '../../../resources/js/Pages/CartView.vue';
+import HomeView from '@/views/HomeView.vue';
+import ProductDetailView from '@/views/ProductDetailView.vue';
+import ProductListView from '@/views/ProductListView.vue';
+import LoginView from '@/views/LoginView.vue';
+import RegisterView from '@/views/RegisterView.vue';
+import CartView from '@/views/CartView.vue';
 
 const routes = [
     {
@@ -46,8 +46,8 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(''),
+    history: createWebHistory(),
     routes
 })
 
-export default router
+export default router;

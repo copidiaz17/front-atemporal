@@ -16,7 +16,10 @@
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-medium mb-2">Contraseña:</label>
-                <InputPassword @changePassword="(pass) => password = pass" />
+              <!--   <InputPassword @changePassword="(pass) => password = pass" /> -->
+                <input :class="{ '!border-red-500': error }"
+                    class="border-0 p-3 outline-zinc-400 block w-full text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 rounded-md"
+                    required id="password" type="password" placeholder="Ingrese su password" v-model="password">    
                 <div class="flex justify-between py-2">
                     <div class="inline-flex items-center gap-2 ">
                         <div class="relative flex cursor-pointer items-center rounded-full" data-ripple-dark="true">
@@ -55,6 +58,8 @@
     </div>
 </template>
 <script setup>
+import saveToken from '@/config/savetoken';
+import axios from 'axios';
 import { ref } from 'vue';
 import InputPassword from '@/components/login/InputPassword.vue'
 
@@ -65,11 +70,28 @@ const password = ref('');
 const error = ref(false);
 
 // Método que se ejecuta cuando se envía el formulario
-const sendForm = () => {
+const sendForm = async () => {
+
+    console.log(email.value, password.value)
     validateForm();
     // Si no hay errores de email y contraseña
-    if (!error) {
-        // Envío a la BD
+    if (!error.value) {
+
+        console.log('hasta aqui')
+        const formdata = new FormData()
+        formdata.append('cliente_email', email.value)
+        formdata.append('cliente_password', password.value)
+        const rest = await axios.post('http://localhost:8000/api/Clientes/Login', formdata);
+
+        console.log(rest.data)
+        if(rest.data.status==='OK'){
+
+            const token = rest.data.token
+
+            saveToken(token)
+
+        }
+       
         console.log('Formulario enviado exitosamente');
     }
 };
