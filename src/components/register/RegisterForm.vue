@@ -30,7 +30,10 @@
             </div>
             <div class="mb-4">
                 <label for="cliente_contraseña" class="block text-gray-700 text-sm font-medium mb-2">Contraseña:</label>
-                <input-password @changePassword="(pass) => cliente_contraseña = pass" />
+                <!-- <input-password @changePassword="(pass) => cliente_contraseña = pass" /> -->
+                 <input type="password" name="" id="" v-model="cliente_contraseña"
+                 class="border-0 p-3 outline-zinc-400 block w-full text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 rounded-md">
+
             </div>
             
     <button class="bg-orange-900 block w-full hover:bg-orange-800 text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
@@ -61,6 +64,9 @@ const cliente_contraseña = ref('');
 
 const register = async () => {
     try {
+        
+        
+       
         const formdata = new FormData()
         formdata.append('cliente_nombre', cliente_nombre.value)
         formdata.append('cliente_direccion', cliente_direccion.value)
@@ -78,6 +84,7 @@ const register = async () => {
            
         //}
         formdata);
+        console.log('jose')
         console.log(rest.data)
         if(rest.data.status === 'OK'){
             
