@@ -5,15 +5,24 @@
                 <h1 class="atemporal">Atemporal</h1>
             </RouterLink>
             <ul>
+<<<<<<< HEAD
                 <li><a href="/category/Relojes">Relojes</a></li>
                 <li><a href="/category/Accesorios">Accesorios</a></li>
                 <li>Ofertas</li>
                 <li>Nosotros</li>
                 
+=======
+                <li>Relojes</li>
+                <li>Accesorios </li>
+                <li>Ofertas</li>
+                <li>Nosotros</li>
+                <li>Accesorios</li>
+>>>>>>> repositorio-juli/mobile
             </ul>
             <ul>
                 <router-link :to="{ name: 'login' }">Iniciar sesión</router-link>
                 <RouterLink :to="{ name: 'cart' }">
+<<<<<<< HEAD
                     <svg class="icono" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M16.5 8.63005C16.09 8.63005 15.75 8.29005 15.75 7.88005V6.50005C15.75 5.45006 15.3 4.43005 14.52 3.72005C13.73 3.00005 12.71 2.67005 11.63 2.77005C9.83 2.94005 8.25 4.78005 8.25 6.70005V7.67005C8.25 8.08005 7.91 8.42005 7.5 8.42005C7.09 8.42005 6.75 8.08005 6.75 7.67005V6.69005C6.75 4.00005 8.92 1.52005 11.49 1.27005C12.99 1.13005 14.43 1.60005 15.53 2.61005C16.62 3.60005 17.25 5.02005 17.25 6.50005V7.88005C17.25 8.29005 16.91 8.63005 16.5 8.63005Z"
@@ -28,6 +37,10 @@
                             d="M8.42016 13.1499C7.86016 13.1499 7.41016 12.6999 7.41016 12.1499C7.41016 11.5999 7.86016 11.1499 8.41016 11.1499C8.96016 11.1499 9.41016 11.5999 9.41016 12.1499C9.41016 12.6999 8.97016 13.1499 8.42016 13.1499Z"
                             fill="#fff" />
                     </svg>
+=======
+                    <span class="absolute -top-2 -right-2 rounded-full bg-red-600 flex items-center justify-center aspect-square w-5 text-center" style="font-size: .7rem; line-height: .7rem;">{{ store.quantityOfProducts }}</span>
+                    <CartIconVue />
+>>>>>>> repositorio-juli/mobile
                 </RouterLink>
             </ul>
         </div>
@@ -98,15 +111,30 @@ import MenuIcon from '@/assets/icons/MenuIcon.vue'
 import SearchIcon from '@/assets/icons/SearchIcon.vue'
 import CloseIcon from '@/assets/icons/CloseIcon.vue'
 import ArrowSimpleIcon from '@/assets/icons/ArrowSimpleIcon.vue'
+<<<<<<< HEAD
 import { ref } from 'vue';
 
 const menu = ref(false)
 const search = ref(false)
+=======
+import CartIconVue from '@/assets/icons/CartIcon.vue'
+
+import { ref } from 'vue';
+import { useCartStore } from '@/stores/cartStore'
+
+const menu = ref(false)
+const search = ref(false)
+const store = useCartStore()
+>>>>>>> repositorio-juli/mobile
 </script>
 <style scoped>
 header {
     width: 100%;
+<<<<<<< HEAD
     background-color: #8c6945b7;
+=======
+    background-color: #8c6945;
+>>>>>>> repositorio-juli/mobile
     position: absolute;
     top: 0;
     z-index: 30;

@@ -54,7 +54,7 @@ const route = useRoute()
 
 onMounted(async () => {
     if (route.params?.name) {
-        const response = await ClienteAxios.get(`/Productos/Categorias/${route.params?.name}`)
+        const response = await ClienteAxios.get(`/Categorias/${route.params?.name}`)
         if (response.status == 200) {
             products.value = response.data
         }

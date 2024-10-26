@@ -7,16 +7,16 @@
                     <li class="font-bold text-lg mb-2">Productos</li>
                 </RouterLink>
                 <li class="mb-2">
-                    <a href="/category/Joyas">Joyas</a>
+                    <a href="">Joyas</a>
                 </li>
                 <li class="mb-2">
-                    <a href="/category/Accesorios">Accesorios</a>
+                    <a href="">Accesorios</a>
                 </li>
                 <li class="mb-2">
-                    <a href="/category/Relojes">Relojes</a>
+                    <a href="">Relojes</a>
                 </li>
                 <li class="mb-2">
-                    <a href="/category/Marroquineria">Marroquinería</a>
+                    <a href="">Marroquinería</a>
                 </li>
             </ul>
             <ul class="">
